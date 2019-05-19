@@ -34,7 +34,14 @@
     owner: "{{ dns_owner }}"
     group: "{{ dns_group }}"
 
-# skip getting hints/root file
+- name: get most recent version of the hints/root file
+  get_url:
+    url: https://www.internic.net/domain/named.root
+    dest: "{{ dns_datadir }}/named.root"
+  when:
+    - dns_caching_dns
+  notify:
+    reload zones
 
 - name: create zone files
   template:
