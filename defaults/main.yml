@@ -56,11 +56,13 @@ dns_zones:
     #     priority: 20
     records:
       - name: triangle
-        value: 127.0.0.1
+        value: 10.11.11.11
       - name: pi-hole
         value: 10.11.11.10
-      - name: router
+      - name: edge
         value: 10.11.11.1
+      - name: fedora-desktop
+        value: 10.11.12.231
 
   - name: 11.11.10.in-addr.arpa
     ttl: 604800
@@ -70,11 +72,23 @@ dns_zones:
         value: localhost.
       - name: 1
         type: PTR
-        value: router.
+        value: edge.qcu87z.net.
       - name: 10
         type: PTR
-        value: pi-hole.
+        value: pi-hole.qcu87z.net.
+      - name: 11
+        type: PTR
+        value: triangle.qcu87z.net.
       
+  - name: 12.11.10.in-addr.arpa
+    ttl: 604800
+    records:
+      - name: "@"
+        type: NS
+        value: localhost.
+      - name: 231
+        type: PTR
+        value: fedora-desktop.qcu87z.net.      
   # - name: forwarded.example.com
   #   ns:
   #     - name: dns1.forwarded.example.com.
