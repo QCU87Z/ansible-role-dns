@@ -61,6 +61,19 @@ dns_zones:
         value: 10.11.11.10
       - name: router
         value: 10.11.11.1
+
+  - name: 11.11.10.in-addr.arpa
+    ttl: 604800
+    records:
+      - name: "@"
+        type: NS
+        value: localhost.
+      - name: 1
+        type: PTR
+        value: router.
+      - name: 10
+        type: PTR
+        value: pi-hole.
       
   # - name: forwarded.example.com
   #   ns:
