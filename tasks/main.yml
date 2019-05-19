@@ -1,7 +1,7 @@
 ---
 - name: install dns
   package:
-    name: "{{ dns_packages }}"
+    name: "{{ dns_package }}"
     state: present
 
 - name: create directories
