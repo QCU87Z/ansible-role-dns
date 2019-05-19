@@ -1,7 +1,7 @@
 {{ ansible_managed | comment }}
 options {
   directory "{{ dns_datadir }}";
-  dnssec-validation auto;
+  dnssec-validation no;
   auth-nxdomain no;
   listen-on { any; };
   listen-on-v6 { any; };
