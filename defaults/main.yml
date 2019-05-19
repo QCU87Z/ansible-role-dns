@@ -104,7 +104,7 @@ dns_zones:
 
 # An optional list of acls to allow recursion. ("any" and "none" are always available.)
 dns_allow_recursion:
-  - none
+  - any
 
 # An optional setting to forward traffic to other DNS servers.
 dns_options_forwarders:
