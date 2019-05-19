@@ -1,0 +1,10 @@
+---
+dns_package: bind9
+
+dns_datadir: /var/lib/bind
+dns_confdir: /etc/bind
+
+dns_group: bind
+dns_owner: bind9
+
+dns_service: bind9

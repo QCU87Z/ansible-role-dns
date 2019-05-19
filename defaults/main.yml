@@ -1,0 +1,84 @@
+---
+# defaults file for dns
+
+# Should the DNS server be a caching DNS server?
+dns_caching_dns: yes
+
+# A list of zones and properties per zone.
+dns_zones:
+  - name: localhost
+    soa: localhost
+    serial: 1
+    refresh: 604800
+    rety: 86400
+    expire: 2419200
+    ttl: 604800
+    records:
+      - name: "@"
+        type: NS
+        value: localhost.
+      - name: "@"
+        value: 127.0.0.1
+      - name: "@"
+        type: AAAA
+        value: ::1
+
+  - name: 127.in-addr.arpa
+    ttl: 604800
+    records:
+      - name: "@"
+        type: NS
+        value: localhost.
+      - name: 1.0.0
+        type: PTR
+        value: localhost.
+
+  - name: 0.in-addr.arpa
+    records:
+      - name: "@"
+        type: NS
+        value: localhost.
+
+  - name: 255.in-addr.arpa
+    records:
+      - name: "@"
+        type: NS
+        value: localhost.
+
+  - name: qcu87z.net
+    ttl: 604800
+    ns:
+      - name: triangle.qcu87z.net.
+    # mx:
+    #   - name: mail1.example.com.
+    #     priority: 10
+    #   - name: mail2.example.com.
+    #     priority: 20
+    records:
+      - name: triangle
+        value: 127.0.0.1
+      - name: pi-hole
+        value: 10.11.11.10
+      - name: router
+        value: 10.11.11.1
+      
+  # - name: forwarded.example.com
+  #   ns:
+  #     - name: dns1.forwarded.example.com.
+  #     - name: dns2.forwarded.example.com.
+  #   records:
+  #     - name: dns1
+  #       value: 127.0.0.1
+  #     - name: dns2
+  #       value: 127.0.0.1
+  #   dns_zone_forwarders:
+  #     - 1.1.1.1
+  #     - 8.8.8.8
+
+# An optional list of acls to allow recursion. ("any" and "none" are always available.)
+dns_allow_recursion:
+  - none
+
+# An optional setting to forward traffic to other DNS servers.
+dns_options_forwarders:
+  - 10.11.11.10
