@@ -33,17 +33,17 @@ dns_zones:
         type: PTR
         value: localhost.
 
-  - name: 0.in-addr.arpa
-    records:
-      - name: "@"
-        type: NS
-        value: localhost.
+  # - name: 0.in-addr.arpa
+  #   records:
+  #     - name: "@"
+  #       type: NS
+  #       value: localhost.
 
-  - name: 255.in-addr.arpa
-    records:
-      - name: "@"
-        type: NS
-        value: localhost.
+  # - name: 255.in-addr.arpa
+  #   records:
+  #     - name: "@"
+  #       type: NS
+  #       value: localhost.
 
   - name: qcu87z.net
     ttl: 604800
