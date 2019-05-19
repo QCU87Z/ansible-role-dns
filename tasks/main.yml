@@ -58,7 +58,7 @@
   template:
     src: named.conf.j2
     dest: "{{ dns_confdir }}/named.conf"
-    validate: named-checkconf -zj %s
+    # validate: named-checkconf -zj %s
   notify:
     reload configuration
 
